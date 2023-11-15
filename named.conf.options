@@ -1,0 +1,48 @@
+acl "trusted" {
+
+        10.2.0.2; #linuxserver1
+
+        10.2.0.3; #linuxserver2
+
+        10.2.0.4;
+
+        10.2.0.201;
+
+};
+
+
+
+
+
+options {
+
+        directory "/var/cache/bind";
+
+
+
+        recursion yes;                  #enables recursive queries
+
+        allow-recursion { trusted; };   #allows recursive queries from "trusted" clients
+
+        listen-on { 10.2.0.2; };        # ns1 private IP address - listen on private network only
+
+        allow-transfer { none; };       # disable zone transfers by default
+
+
+
+        forwarders {
+
+                8.8.8.8;
+
+                8.8.4.4;
+
+        };
+
+        dnssec-validation auto;
+
+
+
+        listen-on-v6 { any; };
+
+};
+
