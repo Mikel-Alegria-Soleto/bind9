@@ -1,0 +1,58 @@
+zone "mikel.com" {
+
+    type master;
+
+    file "/etc/bind/zones/db.mikel.com";     # zone file path
+
+    allow-transfer { 10.2.0.3; };            # linuxserver2 private IP address - secondary
+
+};
+
+
+
+
+
+zone "2.10.in-addr.arpa" {
+
+    type master;
+
+    file "/etc/bind/zones/db.2.10";  # inverse zone file path
+
+    allow-transfer { 10.2.0.3; };    # linuxserver2 private IP address - secondary
+
+};
+
+
+
+
+
+zone "prueba.com" {
+
+    type master;
+
+    file "/etc/bind/zones/db.prueba.com";     # zone file path
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+zone "alegria.mikel.com" {
+
+        type slave;
+
+        file "/var/cache/bind/db.alegria.mikel.com";
+
+        masters {10.2.0.3;};
+
+};
+
