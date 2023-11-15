@@ -1,0 +1,50 @@
+//
+
+// Do any local configuration here
+
+//
+
+
+
+// Consider adding the 1918 zones here, if they are not used in your
+
+// organization
+
+//include "/etc/bind/zones.rfc1918";
+
+
+
+
+
+zone "mikel.com" {
+
+	type slave;
+
+	file "/var/cache/bind/db.mikel.com";
+
+	masters {10.2.0.2;};
+
+};
+
+
+
+zone "2.10.in-addr.arpa" {
+
+	type slave;
+
+	file "/var/cache/bind/db.2.10";
+
+	masters {10.2.0.2;};
+
+};
+
+
+
+zone "alegria.mikel.com" {
+
+    type master;
+
+    file "/etc/bind/zones/db.alegria.mikel.com";
+
+};
+
