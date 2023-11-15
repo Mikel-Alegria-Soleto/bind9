@@ -1,0 +1,42 @@
+;
+
+; BIND reverse data file for local loopback interface
+
+;
+
+$TTL	604800
+
+@	IN	SOA	mikelsv.mikel.com. admin.mikel.com. (
+
+			      6		; Serial
+
+			 604800		; Refresh
+
+			  86400		; Retry
+
+			2419200		; Expire
+
+			 604800 )	; Negative Cache TTL
+
+;
+
+
+
+
+
+
+
+; PTR Records
+
+@	IN      NS      mikelsv.mikel.com.
+
+2.0	IN      PTR     mikelsv.mikel.com.        ; 10.2.0.2
+
+#3.0	IN	NS	mikelsv2.mikel.com.	  ; 10.2.0.3
+
+3.0	IN      PTR     mikelsv2.mikel.com.       ; 10.2.0.3
+
+201.0	IN      PTR     linux.mikel.com.          ; 10.2.0.201
+
+202.0	IN      PTR     windowsclient.mikel.com.  ; 10.2.0.202
+
